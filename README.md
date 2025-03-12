@@ -1,21 +1,6 @@
-CREATE TABLE Posts (
-    Id INT PRIMARY KEY IDENTITY(1,1),
-    Title NVARCHAR(255) NOT NULL,
-    Body NVARCHAR(MAX) NOT NULL,
-    Created_at DATETIME NOT NULL,
-    Updated_at DATETIME NOT NULL
-);
-
-CREATE TABLE Users (
-    Id INT IDENTITY(1,1) PRIMARY KEY,
-    FirstName NVARCHAR(100) NOT NULL,
-    LastName NVARCHAR(100) NOT NULL,
-    Email NVARCHAR(255) UNIQUE NOT NULL,
-    PasswordHash NVARCHAR(500) NOT NULL,
-    PhoneNumber NVARCHAR(20) NULL,
-    DateOfBirth DATE NULL,
-    Address NVARCHAR(500) NULL,
-    IsActive BIT NOT NULL DEFAULT 1,
-    CreatedAt DATETIME NOT NULL DEFAULT GETUTCDATE(),
-    UpdatedAt DATETIME NULL
-);
+ASP.NET Core MVC and want to implement CRUD operations.
+Key Takeaways :
+✔ Uses for database operations.
+✔ Implements Dapper for lightweight and fast ORM.
+✔ Supports CRUD operations in ASP.NET Core MVC.
+✔ Follows best practices for separation of concerns.
