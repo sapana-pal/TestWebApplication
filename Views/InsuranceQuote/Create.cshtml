@@ -1,0 +1,54 @@
+﻿@model InsuranceQuoteRequest
+
+@{
+    ViewData["Title"] = "Get Insurance Quote";
+}
+
+<div class="container mt-5">
+    <h2 class="text-center text-primary">Get Your Vehicle Insured Instantly!</h2>
+    <p class="text-center">Compare and choose the best insurance for your Car, Bike, or Commercial Vehicle.</p>
+
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-success">@TempData["SuccessMessage"]</div>
+    }
+
+    <form asp-action="Create" method="post" class="p-4 border rounded shadow bg-light">
+        <div class="mb-3">
+            <label class="form-label">Vehicle Type</label>
+            <select asp-for="VehicleType" class="form-control" required>
+                <option value="" disabled selected>Select Vehicle Type</option>
+                <option value="Car">Car Insurance</option>
+                <option value="Bike">Bike Insurance</option>
+                <option value="Commercial">Commercial Vehicle Insurance</option>
+            </select>
+            <span asp-validation-for="VehicleType" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Full Name</label>
+            <input asp-for="FullName" class="form-control" placeholder="Enter your full name" required />
+            <span asp-validation-for="FullName" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Mobile Number</label>
+            <input asp-for="MobileNumber" class="form-control" placeholder="Enter your mobile number" required />
+            <span asp-validation-for="MobileNumber" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Vehicle Registration Number</label>
+            <input asp-for="VehicleRegistrationNumber" class="form-control" placeholder="Enter registration number" required />
+            <span asp-validation-for="VehicleRegistrationNumber" class="text-danger"></span>
+        </div>
+
+        <button type="submit" class="btn btn-primary w-100">Get Free Quotes</button>
+    </form>
+</div>
+
+@section Scripts {
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.12/jquery.validate.unobtrusive.min.js"></script>
+}
